@@ -3,5 +3,5 @@
     description: sync pyproject & requirements
     entry: posync
     language: python
-    files: ^pyproject\.toml$
+    files: pyproject\.toml$
     types: [text]
