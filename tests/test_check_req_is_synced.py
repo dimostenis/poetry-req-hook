@@ -6,7 +6,7 @@ from pre_commit_hooks.check_req_is_synced import main
 from testing.util import get_resource_path
 
 
-def test_using_custom_pyproject():
+def test_using_multiple_pyprojects():
     """ This FAILS with AssertionError, coz only 1 "pyproject.toml" is allowed. """
 
     with pytest.raises(AssertionError):
