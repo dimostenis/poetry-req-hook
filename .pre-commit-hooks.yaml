@@ -1,0 +1,7 @@
+-   id: check-req-is-synced
+    name: poetry-req-sync
+    description: sync pyproject & requirements
+    entry: posync
+    language: python
+    files: ^pyproject\.toml$
+    types: [text]

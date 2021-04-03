@@ -1,0 +1,13 @@
+[tool.poetry]
+name = "poetry-req-hook"
+version = "0.2.0"
+description = ""
+authors = ["dimostenis <dimosh3k@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pre-commit = "^2.11.1"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
