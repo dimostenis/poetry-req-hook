@@ -14,9 +14,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     # https://python-poetry.org/docs/cli/#export
 
     REQUIREMENTS_DEFAULT = "requirements.txt"
-    PYPROJECT_DEFAULT = "pyproject.toml"
 
     parser = argparse.ArgumentParser()
+    parser.add_argument("pyprojects", nargs="*")  # pyproject.toml
     parser.add_argument(
         "--dev",
         action="store_true",
@@ -39,12 +39,6 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         help="Include credentials for extra indices.",
     )
     parser.add_argument(
-        "--pyproject-path",
-        help="Path to pyproject.toml.",
-        nargs="?",
-        default=PYPROJECT_DEFAULT,
-    )
-    parser.add_argument(
         "--requirements-path",
         help="Path to requirements.txt.",
         nargs="?",
@@ -52,10 +46,10 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     )
     args = parser.parse_args(argv)
 
-    msg = "'--pyproject-path must point to 'pyproject.toml' file."
-    assert "pyproject.toml" == Path(args.pyproject_path).name, msg
+    msg = f"Exactly 1 pyproject.toml is allowed. Found {args.pyprojects}. Exit."
+    assert len(args.pyprojects) == 1, msg
 
-    homedir: str = str(Path(args.pyproject_path).absolute().parent)
+    homedir: str = str(Path(args.pyprojects[0]).absolute().parent)
     p = Path(args.requirements_path)
 
     poetry = Factory().create_poetry(homedir)
@@ -79,8 +73,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     retval = 0
     if new_requirements != old_requirements:
-        retval = 1
         p.write_text(new_requirements)
+        retval = 1
 
     return retval
 

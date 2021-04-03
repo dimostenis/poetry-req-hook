@@ -7,11 +7,12 @@ Keep `pyproject.toml` and `requirements.txt` in sync, whenever `pyproject.toml` 
 ## Arguments
 
 - same as in https://python-poetry.org/docs/cli/#export
-- `--pyproject-path`
-    - use custom `pyproject.toml` instead of top level `./pyproject.toml`
 - `--requirements-path`
     - use custom `requirements.txt` instead of top level `./requirements.txt`
-    - custom name can be used too, eg `reqs-dev.txt`
+    - arg can be used to change name or dir. Or both
+        - `--requirements-path reqs-dev.txt`
+        - `--requirements-path docker/requirements.txt`
+        - ...
 
 ## Examples
 
@@ -45,7 +46,6 @@ Use custom location under `/app` dir.
     hooks:
       - id: poetry-req-sync
         args: [
-            "--pyproject-path", "app/pyproject.toml",
             "--requirements-path", "app/requirements.txt",
             "--dev"
             ]

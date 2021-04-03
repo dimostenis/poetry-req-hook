@@ -7,14 +7,13 @@ from testing.util import get_resource_path
 
 
 def test_using_custom_pyproject():
-    """ This FAILS with AssertionError, coz only "pyproject.toml" is allowed. """
+    """ This FAILS with AssertionError, coz only 1 "pyproject.toml" is allowed. """
 
-    directory = "pass_custom_reqs"
     with pytest.raises(AssertionError):
         main(
             [
-                "--pyproject-path",
-                get_resource_path(f"{directory}/custom-pyproject.toml"),
+                get_resource_path("foo/pyproject.toml"),
+                get_resource_path("bar/pyproject.toml"),
             ]
         )
 
@@ -23,10 +22,9 @@ def test_using_custom_requirements():
     directory = "pass_custom_reqs"
     ret = main(
         [
+            get_resource_path(f"{directory}/pyproject.toml"),
             "--without-hashes",
             "--dev",
-            "--pyproject-path",
-            get_resource_path(f"{directory}/pyproject.toml"),
             "--requirements-path",
             get_resource_path(f"{directory}/requirements-dev.txt"),
         ]
@@ -38,10 +36,9 @@ def test_using_default_requirements():
     directory = "pass_default_reqs"
     ret = main(
         [
+            get_resource_path(f"{directory}/pyproject.toml"),
             "--without-hashes",
             "--dev",
-            "--pyproject-path",
-            get_resource_path(f"{directory}/pyproject.toml"),
             "--requirements-path",
             get_resource_path(f"{directory}/requirements.txt"),
         ]
@@ -55,9 +52,8 @@ def test_missing_requirements():
     try:
         ret = main(
             [
-                "--without-hashes",
-                "--pyproject-path",
                 get_resource_path(f"{directory}/pyproject.toml"),
+                "--without-hashes",
                 "--requirements-path",
                 get_resource_path(f"{directory}/requirements.txt"),
             ]
