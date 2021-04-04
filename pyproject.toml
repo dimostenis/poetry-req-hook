@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyproject-to-requirements-hook"
-version = "0.2.4"
+version = "0.2.1"
 description = ""
 authors = ["dimostenis <dimosh3k@gmail.com>"]
 
