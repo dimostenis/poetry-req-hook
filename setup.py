@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="pyproject-to-requirements-hook",
-    version="0.2.3",
+    version="0.2.4",
     install_requires=["poetry"],
     packages=find_packages(),
     entry_points={
