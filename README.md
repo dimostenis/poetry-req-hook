@@ -20,18 +20,18 @@ Basic usage
 
 ```yaml
 - repo: https://github.com/dimostenis/poetry-req-hook
-    rev: 0.2.0
+    rev: 0.2.1
     hooks:
-      - id: poetry-req-sync
+      - id: check-req-is-synced
 ```
 
 Include dev deps under `requirements-dev.txt`
 
 ```yaml
 - repo: https://github.com/dimostenis/poetry-req-hook
-    rev: 0.2.0
+    rev: 0.2.1
     hooks:
-      - id: poetry-req-sync
+      - id: check-req-is-synced
         args: [
             "--requirements-path", "requirements-dev.txt",
             "--dev"
@@ -42,15 +42,22 @@ Use custom location under `/app` dir.
 
 ```yaml
 - repo: https://github.com/dimostenis/poetry-req-hook
-    rev: 0.2.0
+    rev: 0.2.1
     hooks:
-      - id: poetry-req-sync
+      - id: check-req-is-synced
         args: [
             "--requirements-path", "app/requirements.txt",
             "--dev"
             ]
 ```
 
-## Note
+## Note I.
 
 Originaly forked from https://github.com/Diaoul/pre-commit-hooks-poetry.
+
+## Note II.
+
+`setup.cfg` along `pyproject.toml` in repo? Yes.
+
+- `setup.cfg` is for `pre-commit` to correctly install executable.
+- `pyproject.toml` for dev
