@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "poetry-req-hook"
-version = "0.2.0"
+version = "0.2.1"
 description = ""
 authors = ["dimostenis <dimosh3k@gmail.com>"]
 
