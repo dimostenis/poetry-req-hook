@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "poetry-req-hook"
-version = "0.2.1"
+name = "pyproject-to-requirements-hook"
+version = "0.2.3"
 description = ""
 authors = ["dimostenis <dimosh3k@gmail.com>"]
 
@@ -28,4 +28,4 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.poetry.scripts]
-posync = 'pre_commit_hooks.check_req_is_synced:main'
+pyproject-to-requirements = 'pre_commit_hooks.check_req_is_synced:main'
