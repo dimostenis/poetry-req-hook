@@ -7,7 +7,7 @@ setup(
     packages=find_packages(),
     entry_points={
         "console_scripts": [
-            "pyproject-to-requirements = pre_commit_hooks.check_req_is_synced:main"
+            "pyproject-to-requirements = pre_commit_hooks.pyproject_to_requirements:main"
         ]
     },
 )

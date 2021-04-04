@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pytest
 
-from pre_commit_hooks.check_req_is_synced import main
+from pre_commit_hooks.pyproject_to_requirements import main
 from testing.util import get_resource_path
 
 

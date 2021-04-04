@@ -5,7 +5,7 @@ description = ""
 authors = ["dimostenis <dimosh3k@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.6.1"
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.812"
@@ -28,4 +28,4 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.poetry.scripts]
-pyproject-to-requirements = 'pre_commit_hooks.check_req_is_synced:main'
+pyproject-to-requirements = 'pre_commit_hooks.pyproject_to_requirements:main'
