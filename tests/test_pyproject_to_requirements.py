@@ -7,7 +7,7 @@ from testing.util import get_resource_path
 
 
 def test_using_multiple_pyprojects():
-    """ This FAILS with AssertionError, coz only 1 "pyproject.toml" is allowed. """
+    """This FAILS with AssertionError, coz only 1 "pyproject.toml" is allowed."""
 
     with pytest.raises(AssertionError):
         main(
@@ -47,7 +47,7 @@ def test_using_default_requirements():
 
 
 def test_missing_requirements():
-    """ This test fails coz there is no requirements.txt file - must be generated. """
+    """This test fails coz there is no requirements.txt file - must be generated."""
     directory = "fail_no_reqs"
     try:
         ret = main(
