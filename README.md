@@ -1,5 +1,31 @@
 # Sync `poetry` & `requirements` hook
 
+---
+
+**[?? OBSOLETE ??]**
+
+Since `poetry` update `1.2.0`, there is a [built-in support for pre-commit export hook](https://python-poetry.org/docs/pre-commit-hooks/).
+
+
+```yaml
+# (copy from official docs)
+
+repos:
+  - repo: https://github.com/python-poetry/poetry
+    rev: ''  # add version here
+    hooks:
+      - id: poetry-check
+      - id: poetry-lock
+      - id: poetry-export
+        args: ["-f", "requirements.txt", "-o", "requirements.txt"]
+```
+
+However, theres an advantage of using our *old* hook, because `poetry`s native hook **depends on change of `poetry.lock`**, so if you have it in `.gitignore`, native hook will never work for you.
+
+**Our hook depends on change of `pyproject.toml`**
+
+---
+
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 
 Keep `pyproject.toml` and `requirements.txt` in sync, whenever `pyproject.toml` changes.
@@ -20,7 +46,7 @@ Basic usage
 
 ```yaml
 - repo: https://github.com/dimostenis/poetry-req-hook
-    rev: 0.2.3
+    rev: 1.1.0
     hooks:
       - id: pyproject-to-requirements
 ```
@@ -29,7 +55,7 @@ Include dev deps under `requirements-dev.txt`
 
 ```yaml
 - repo: https://github.com/dimostenis/poetry-req-hook
-    rev: 0.2.3
+    rev: 1.1.0
     hooks:
       - id: pyproject-to-requirements
         args: [
@@ -42,7 +68,7 @@ Use custom location under `/app` dir.
 
 ```yaml
 - repo: https://github.com/dimostenis/poetry-req-hook
-    rev: 0.2.3
+    rev: 1.1.0
     hooks:
       - id: pyproject-to-requirements
         args: [
