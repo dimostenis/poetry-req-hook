@@ -1,19 +1,20 @@
 [tool.poetry]
 name = "pyproject-to-requirements-hook"
-version = "1.0.0"
+version = "1.1.0"
 description = ""
 authors = ["dimostenis <dimosh3k@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.6.1"
+python = ">=3.6.2,<4.0.0"
+poetry = "<1.2"
 
 [tool.poetry.dev-dependencies]
-mypy = "^0.812"
-black = "^20.8b1"
-flake8 = "^3.9.0"
-pre-commit = "^2.11.1"
-pytest = "^6.2.2"
-setuptools = "^54.2.0"
+mypy = "*"
+black = "*"
+flake8 = "*"
+pre-commit = "*"
+pytest = "*"
+setuptools = "*"
 
 [tool.isort]
 profile = "black"
