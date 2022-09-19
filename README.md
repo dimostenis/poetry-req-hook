@@ -24,6 +24,20 @@ However, theres an advantage of using our *old* hook, because `poetry`s native h
 
 **Our hook depends on change of `pyproject.toml`**
 
+So if you want same funcionality, add "files" to hook as follows and its done.
+
+```yaml
+repos:
+  - repo: https://github.com/python-poetry/poetry
+    rev: ''  # add version here
+    hooks:
+      - id: poetry-check
+      - id: poetry-lock
+      - id: poetry-export
+        args: ["-f", "requirements.txt", "-o", "requirements.txt"]
+        files: ^pyproject.toml$  # <------------------------------
+```
+
 ---
 
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
